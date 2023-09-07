@@ -37,7 +37,7 @@
                     @method('delete')
                     <input type="hidden" name="Id" class="" value="{{$blog->id}}">
                     <button type="submit" class="btn btn-danger" name="delete">Delete</button>
-                    <a href="{{url('/admin/edit', $blog->id) }}" class="btn  btn-success">Update</a>
+                    <a href="{{url('/admin/edit-blog', $blog->id) }}" class="btn  btn-success">Update</a>
                 </form> </td>
             </tr> 
             @endforeach

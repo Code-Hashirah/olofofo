@@ -29,4 +29,17 @@ class NewsBlog extends Controller
         DB::table('blogs')->where('id',$request->Id)->delete();
         return redirect('/admin/manage-blog')->with('success','Blog deleted');
     }
+
+    public function editBlog($id){
+        $SingleBlog=DB::table('blogs')->find($id);
+        return view('Admin.editBlog',compact((['SingleBlog'])));
+    }
+    public function updateBlog(Request $request){
+        DB::table('blogs')->where('id',$request->id)->update([
+            'title'=>$request->Title,
+            'body'=>$request->Body,
+            'picture'=>$request->Picture
+        ]);
+        return redirect('/admin/manage-blog');
+    }
 }
