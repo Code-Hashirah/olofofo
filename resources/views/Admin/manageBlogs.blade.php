@@ -3,37 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    @vite('resources/css/table.css')
-</head>
-<body>
+    <title>Manage Blog</title>
+    <style>
+        #bdy{
+            width: auto;
+            overflow: hidden;
+            height: 50px;
+        }
+    </style>
     @extends('layouts.app')
     @section('table')
-    @if(count($Products) > 0)
+    @if(count($Blogs) > 0)
     <table class="table">
             <tr>
                 <th>S/N</th>
                 <th>Title</th>
-                <th>Quantity</th>
-                <th>Price</th>
+                <th>Body</th>
+                <th>Picture</th>
                 <th>Actions</th>
             </tr>
     @php
     $sn=1
     @endphp
-    @foreach ($Products as $product)
+    @foreach ($Blogs as $blog)
            <tr> 
                 <td>{{$sn++}}</td>
-                <td>{{$product->item}}</td>
-                <td>{{$product->quantity}}</td>
-                <td>{{$product->price}}</td>
+                <td>{{$blog->title}}</td>
+                <td><p id="bdy">{{$blog->body}}</p></td>
+                <td><img src="{{$blog->picture}}" alt="picture" width="200px" height="150px"></td>
                 <td> 
-                <form action="/admin/delete" method="post">
+                <form action="/admin/delete-blog" method="post">
                     @csrf
                     @method('delete')
-                    <input type="hidden" name="Id" class="" value="{{$product->id}}">
+                    <input type="hidden" name="Id" class="" value="{{$blog->id}}">
                     <button type="submit" class="btn btn-danger" name="delete">Delete</button>
-                    <a href="{{url('/admin/edit', $product->id) }}" class="btn  btn-success">Update</a>
+                    <a href="{{url('/admin/edit', $blog->id) }}" class="btn  btn-success">Update</a>
                 </form> </td>
             </tr> 
             @endforeach

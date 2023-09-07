@@ -35,6 +35,19 @@
     font-size: 16px;
     font-weight: 800;
 }
+.inpt-tagA{
+    width: 70%;
+    border-bottom: 2px solid rgb(27, 6, 6);
+    border-right: 2px solid rgb(27, 6, 6);
+    outline: none;
+    background: transparent;
+    resize: none;
+    border-top: none;
+    border-left: none;
+    color: rgb(27, 6, 6);
+    font-size: 12px;
+    font-weight: 200;
+}
 
 @media screen and (max-width:660px) {
     .add-up{
