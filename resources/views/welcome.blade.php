@@ -11,7 +11,7 @@
        @foreach ($allBlog as $Blog)
        <div class="col-md-12">
             <h3 class="text-danger">{{$Blog->title}}</h3>
-            <img src="{{$Blog->picture}}" alt="picture" height="400px" width="100%">
+            <img src="{{$Blog->picture}}" alt="picture" height="500px" width="100%">
             <p>{{$Blog->body}}</p>
         </div>
         @endforeach
